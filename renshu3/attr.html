@@ -1,0 +1,28 @@
+<select id="blson">
+<option>おもて</option>
+<option>うら</option>
+</select>
+<img class="product" src="omote.jpg" width="200px">
+<img id="ninja" src="ninja.png">
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+$("#ninja").mouseenter(function () {
+	$(this).attr("src", "cat.png");
+}).mouseleave(function () {
+	$(this).attr("src", "ninja.png");
+});
+
+
+$("#blson").on("change", function () {
+		var choice = $(this).val();
+		console.log(choice);
+
+		if(choice == 'うら'){
+		 	$(".product").attr('src','ura.jpg').attr('alt','うら');	
+		}else{
+		 	$(".product").attr('src','omote.jpg').attr('alt','おもて');
+
+		}
+});
+</script>

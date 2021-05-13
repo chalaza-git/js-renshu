@@ -1,0 +1,53 @@
+柄を選択<br>
+<style>.product{width: 50px}
+</style>
+<select id="print">
+  <option>おみくじ</option>
+  <option>花札</option>
+  <option>麻雀</option>
+  </select>
+  <br>
+
+  <div id="img_wrap">
+   
+    <!-- ここに画像が埋め込まれる -->
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script>
+ 
+     var elem = '';
+  for( let i=0 ; i < 7 ; i++ ){
+    elem += '<input type="radio"><img class="product" src="png/' + i + '.png">' ;
+  }
+  $('#img_wrap').html(elem);
+  // console.log(elem);
+
+  $("#print").on("change", function () {
+      var choice = $(this).val();
+
+      if(choice == '花札'){
+
+        var elem = '';
+  for( let i=1 ; i < 9 ; i++ ){
+    elem += '<input type="radio"><img class="product" src="png/hanafuda_' + i + '.jpg">' ;
+  }
+  $('#img_wrap').html(elem);
+
+      }if(choice == '麻雀'){
+        var elem = '';
+  for( let i=1 ; i < 10 ; i++ ){
+    elem += '<input type="radio"><img class="product" src="png/jan_' + i + '.jpg">' ;
+  }
+  $('#img_wrap').html(elem);
+  
+      }if(choice == 'おみくじ'){
+        var elem = '';
+  for( let i=0 ; i < 7 ; i++ ){
+    elem += '<input type="radio"><img class="product" src="png/' + i + '.png">' ;
+  }
+  $('#img_wrap').html(elem);
+       
+      }
+  });
+  </script>

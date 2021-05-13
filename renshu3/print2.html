@@ -1,0 +1,38 @@
+<style>.product{width: 50px}</style>
+
+<select id="print">
+	<option value="0" data-ex="png">おみくじ</option>
+	<option value="7" data-ex="jpg">花札</option>
+	<option value="14" data-ex="jpg">麻雀牌</option>
+</select>
+<br>
+
+<div id="img_wrap"></div>
+  <!-- ここに画像が埋め込まれる -->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+$('#print').change(function(){  
+prt();
+});
+prt();
+//最初に開かれたときに"おみくじ"が選ばれてるのでその処理だけ
+
+function prt(){
+    var elem = '';
+    var num = $('#print').val();
+    var max = Number(num) + 7;
+    var exp = $('#print').children('option:selected').data('ex');
+    
+    for( let i=num ; i < max ; i++ ){
+      elem += `<input type="radio" value="${i}"><img class="product" src="images/${i}.${exp}">` ;
+    }
+    
+    $('#img_wrap').html(elem);
+    console.log(elem);
+  }
+  //これはすべて画像が数字のみで設定されてる場合のみ。名前をつけて別ジャンルで保存していた場合は別。
+</script> 
+
+

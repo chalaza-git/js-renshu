@@ -1,0 +1,24 @@
+<select id="blson">
+  <option>おもて</option>
+  <option>うら</option>
+  </select>
+  <img class="product" src="omote.jpg"  alt="ブルゾン" width="200px">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+  $("#blson").on("change", function () {
+      var choice = $(this).val();
+
+      if(choice == 'うら'){
+        console.log( $(".product").attr('alt') );  //ここでコンソールに上で設定したaltのブルゾンが与えられ、表記される
+         $(".product").attr('src','ura.jpg').attr('alt','うら');	  //画像を入れ替えて、alt属性にうらを付与している
+
+         $(".product").removeAttr('class');   //ここでclass属性を削除しているため、この先はもう動かない リロードしたら動く 検証のエレメントを見ると class="product" が消えてるのがわかる
+      }else{
+         $(".product").attr('src','omote.jpg').attr('alt','おもて');
+  
+      }
+  });
+});
+  </script>
